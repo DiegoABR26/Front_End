@@ -11,7 +11,7 @@ export class RegistroComponent {
 
   constructor(private router: Router) {}
 
-  cook(){
+  cook():void{
   }
 
   navigate(url: string): void {

@@ -1,0 +1,12 @@
+<!-- my-component.component.html-->
+<div *ngIf="results.length > 0">
+  <ul>
+    <li *ngFor="let result of results">
+      {{ result.property1 }} - {{ result.property2 }}
+    </li>
+  </ul>
+</div>
+<div *ngIf="results.length === 0">
+  No data available.
+</div>
+
