@@ -1,54 +1,57 @@
 <div>
-  <div class="boxReturn" (click)="navigate('');cook()">
-    <div class="overlay">Regresar</div>
+  <div class="boxReturn" (click)="navigate('')">
+    <div class="overlay" style="padding-top: 3px;">Regresar</div>
   </div>
-  <h1>Formulario de Trabajadores</h1>
+  <h1>Registro de Trabajadores</h1>
 </div>
-<form id="trabajadorForm">
+  <form #trabajadorForm="ngForm" (ngSubmit)="onInsertTrabajador(trabajadorForm)" id="trabajadorForm" class="form1">
     <div class="trabajador1">
-        <div class="input-group">
-            <div class="input-item">
-                <label for="nombre1">Nombre:</label>
-                <input type="text" id="nombre1" name="nombre1" required>
-            </div>
-            <div class="input-item">
-                <label for="apellido1">Apellido:</label>
-                <input type="text" id="apellido1" name="apellido1" required>
-            </div>
-            <div class="input-item">
-                <label for="edad1">Edad:</label>
-                <input type="number" id="edad1" name="edad1" required>
-            </div>
-            <div class="input-item">
-                <label for="cargo1">Cargo:</label>
-                <input type="text" id="cargo1" name="cargo1" required>
-            </div>
+      <div class="input-group">
+        <div class="input-item">
+          <label for="nombre1">Nombre:</label>
+          <input placeholder="Ingresar Nombre" type="text" id="nombre1" name="nombre1" ngModel required>
         </div>
-    </div>
-
-    <div class="trabajador2">
-        <div class="input-group">
-            <div class="input-item">
-                <label for="nombre2">Valor 5:</label>
-                <input type="text" id="nombre2" name="nombre2" required>
-            </div>
-            <div class="input-item">
-                <label for="apellido2">Valor 6:</label>
-                <input type="text" id="apellido2" name="apellido2" required>
-            </div>
-            <div class="input-item">
-                <label for="edad2">Valor 7:</label>
-                <input type="number" id="edad2" name="edad2" required>
-            </div>
-            <div class="input-item">
-                <label for="cargo2">Valor 8:</label>
-                <input type="text" id="cargo2" name="cargo2" required>
-            </div>
+        <div class="input-item">
+          <label for="apellido1">Apellido:</label>
+          <input placeholder="Ingresar Apellido" type="text" id="apellido1" name="apellido1" ngModel required>
         </div>
+        <div class="input-item">
+          <label for="Sede1">Sede:</label>
+          <input placeholder="Ingresar Sede de Labores" type="number" id="Sede1" name="Sede1" ngModel required>
+        </div>
+        <div class="input-item">
+          <label for="cargo1">Tipo de Horario:</label>
+          <input type="text" id="THorario" name="THorario" ngModel required>
+        </div>
+        <div class="input-item">
+          <label for="Email">Email:</label>
+          <input placeholder="Ingresar Email" type="text" id="Email" name="Email" ngModel required>
+        </div>
+        <div class="input-item">
+          <label for="NumberContact">Numero de Contacto:</label>
+          <input placeholder="Ingresar Número de Contacto" type="text" id="NumberContact" name="NumberContact" ngModel required>
+        </div>
+      </div>
     </div>
-
     <div>
       <button type="submit">Enviar</button>
     </div>
-</form>
+  </form>
+    <!-- Mensaje de confirmación o error -->
+  <div *ngIf="message" class="message">
+    {{ message }}
+  </div>
+  <form class="form2">
+    <div *ngIf="results.length > 0" class="resultados">
+      <div *ngFor="let result of results">
+        <div *ngFor="let feature of result.resultado">
+          <h1>HOLA {{feature.Cant_Horas_Trabj}}</h1>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="results.length === 0">
+      No hay datos disponibles.
+    </div>
+  </form>
+
 

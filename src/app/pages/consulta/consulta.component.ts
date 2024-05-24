@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { listarTrabajadores, MyResultObject } from "src/app/services/listarTrabajadores.service";
-
+import { GetTipoHorario,ResultHorario, RequestTipoHorario } from "src/app/services/GetTipoHorario.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consulta',
@@ -10,14 +10,24 @@ import { listarTrabajadores, MyResultObject } from "src/app/services/listarTraba
 
 
 export class ConsultaComponent implements OnInit {
-    results: MyResultObject[] = [];
 
-    constructor(private apiService: listarTrabajadores) { }
+  navigate(url: string): void {
+    this.router.navigateByUrl(url);
+  }
+    results: any[] = [];
+
+
+    constructor(private apiService: GetTipoHorario,private router: Router ) { }
+
 
     ngOnInit(): void {
-      this.apiService.getResults('someParam1', 123).subscribe(response => {
-        this.results = response.data;
-      });
+      const request:RequestTipoHorario={
+        Id_Horario : 2
+      }
+
+      this.apiService.getResults(request).subscribe(response => {
+        this.results.push(response.result[0]);
+        });
     }
 
 }

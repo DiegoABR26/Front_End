@@ -1,2 +1,13 @@
 
-
+.boxReturn{
+  color: #fff;
+  width: 10%;
+  height: 25px;
+  background-position: center;
+  background-color: #5a5fd6;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+}

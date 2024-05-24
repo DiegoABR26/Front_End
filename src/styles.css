@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  font-family: Arial, sans-serif;
+  background-color: #e9e5fc; /* Fondo en un tono claro */
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+
+h1 {
+  text-align: center;
+  color: #7b7bfc; /* Título en el color representativo */
+}

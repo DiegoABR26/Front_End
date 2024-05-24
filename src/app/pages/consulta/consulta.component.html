@@ -1,9 +1,12 @@
 <!-- my-component.component.html-->
+<div class="boxReturn" (click)="navigate('')">
+  <div class="overlay" style="padding-top: 3px;">Regresar</div>
+</div>
 <div *ngIf="results.length > 0">
   <ul>
     <li *ngFor="let result of results">
-      {{ result.property1 }} - {{ result.property2 }}
-    </li>
+ <!--         {{ result.Id_Horario }} - {{ result.Hora_Inicio }} - {{result.Hora_Final}} - {{result.Cant_Horas_Trabj}}-->
+</li>
   </ul>
 </div>
 <div *ngIf="results.length === 0">

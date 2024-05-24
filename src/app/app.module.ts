@@ -4,13 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 //Route
 import { AppRoutingModule } from './app-routing.module';
 
+//Services
+import { InsertTrabajadorService } from './services/InsertTrabajador.service';
+import { GetTipoHorario } from './services/GetTipoHorario.service';
+
 //Components
 import { AppComponent } from './app.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import {RegistroComponent} from './pages/registro/registro.component';
 import { FormsModule } from '@angular/forms';
-import { listarTrabajadores } from './services/listarTrabajadores.service';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,10 @@ import { listarTrabajadores } from './services/listarTrabajadores.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [listarTrabajadores],
+  providers: [GetTipoHorario, InsertTrabajadorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
