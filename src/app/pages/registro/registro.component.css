@@ -1,13 +1,24 @@
 .form1 {
-  width: 50%;
+  width: 30%;
   height: 70%;
+  left: 10px;
   padding-right: 100px;
   position: absolute;
   background-color: #ffffff; /* Fondo del formulario en blanco */
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: auto;
+}
+
+.form1::-webkit-scrollbar{
+  width: 7px;
+  background:#ffffff ;
+}
+
+.form1::-webkit-scrollbar-thumb{
+  background:#989dec;
+  border-radius: 5px;
 }
 
 .form2 {
@@ -15,12 +26,27 @@
   position: absolute;
   max-height: 60%;
   right: 20px;
-  background-color: lightblue; /* Fondo del formulario en blanco */
+  background-color: rgb(200, 241, 255); /* Fondo del formulario en blanco */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+.form2::-webkit-scrollbar{
+  width: 7px;
+  background:rgb(200, 241, 255) ;
 }
 
+.form2::-webkit-scrollbar-thumb{
+  background:#989dec;
+  border-radius: 5px;
+}
+
+.containerHorario{
+  width:100%;
+  background-color: rgb(223, 247, 255);
+  border-radius: 10px;
+}
 .trabajador1,
 .trabajador2 {
   display: inline-block; /* Mostrar los divs padre uno al lado del otro */
@@ -45,6 +71,9 @@ label {
 
 input[type="text"],
 input[type="number"],
+input[type="date"],
+select,
+
 button {
   width: 100%;
   max-width: 100%;
@@ -78,5 +107,11 @@ button:hover {
   position: absolute;
   cursor: pointer;
   border-radius: 5px;
+  margin-top:10px;
+  margin-left:10px;
 }
 /*Secciones ID*/
+.message {
+  margin: 20px;
+  color: red;
+}

@@ -4,54 +4,89 @@
   </div>
   <h1>Registro de Trabajadores</h1>
 </div>
-  <form #trabajadorForm="ngForm" (ngSubmit)="onInsertTrabajador(trabajadorForm)" id="trabajadorForm" class="form1">
-    <div class="trabajador1">
-      <div class="input-group">
-        <div class="input-item">
-          <label for="nombre1">Nombre:</label>
-          <input placeholder="Ingresar Nombre" type="text" id="nombre1" name="nombre1" ngModel required>
-        </div>
-        <div class="input-item">
-          <label for="apellido1">Apellido:</label>
-          <input placeholder="Ingresar Apellido" type="text" id="apellido1" name="apellido1" ngModel required>
-        </div>
-        <div class="input-item">
-          <label for="Sede1">Sede:</label>
-          <input placeholder="Ingresar Sede de Labores" type="number" id="Sede1" name="Sede1" ngModel required>
-        </div>
-        <div class="input-item">
-          <label for="cargo1">Tipo de Horario:</label>
-          <input type="text" id="THorario" name="THorario" ngModel required>
-        </div>
-        <div class="input-item">
-          <label for="Email">Email:</label>
-          <input placeholder="Ingresar Email" type="text" id="Email" name="Email" ngModel required>
-        </div>
-        <div class="input-item">
-          <label for="NumberContact">Numero de Contacto:</label>
-          <input placeholder="Ingresar Número de Contacto" type="text" id="NumberContact" name="NumberContact" ngModel required>
-        </div>
+<form #trabajadorForm="ngForm" (ngSubmit)="onInsertTrabajador(trabajadorForm)" id="trabajadorForm" class="form1">
+  <div class="trabajador1">
+    <div class="input-group">
+      <div class="input-item">
+        <label for="dni">Número de documento:</label>
+        <input maxlength="8" placeholder="Ingresar número de documento" type="text" id="dni" name="dni" ngModel required>
+      </div>
+      <div class="input-item">
+        <label for="nombre">Nombre:</label>
+        <input placeholder="Ingresar Nombre" type="text" id="nombre" name="nombre" ngModel required>
+      </div>
+      <div class="input-item">
+        <label for="apellido">Apellido:</label>
+        <input placeholder="Ingresar Apellido" type="text" id="apellido" name="apellido" ngModel required>
+      </div>
+      <div class="input-item">
+        <label for="sede">Sede:</label>
+        <input placeholder="Ingresar Sede de Labores" type="number" id="sede" name="sede" ngModel required>
+      </div>
+      <div class="input-item">
+        <label for="tHorario">Tipo de Horario:</label>
+        <select id="tHorario" name="tHorario" ngModel required>
+          <option *ngFor="let horario of results" [value]="horario.id_Horario">
+            {{horario.hora_Inicio}} - {{horario.hora_Final}}
+          </option>
+        </select>
+      </div>
+      <div class="input-item">
+        <label for="tContrato">Tipo de contrato:</label>
+        <select id="tContrato" name="tContrato" ngModel required>
+          <option *ngFor="let horario of results" [value]="horario.id_Horario">
+            {{horario.hora_Inicio}} - {{horario.hora_Final}}
+          </option>
+        </select>
+      </div>
+      <div class="input-item">
+        <label for="fecha_Ingreso">Fecha de Ingreso:</label>
+        <input type="date" id="fecha_Ingreso" name="fecha_Ingreso" ngModel required>
+      </div>
+      <div class="input-item">
+        <label for="fecha_Cese">Fecha de Cese:</label>
+        <input type="date" id="fecha_Cese" name="fecha_Cese" ngModel required>
+      </div>
+      <div class="input-item">
+        <label for="email">Email:</label>
+        <input placeholder="Ingresar Email" type="text" id="email" name="email" ngModel required>
+      </div>
+      <div class="input-item">
+        <label for="numero_Contact">Numero de Contacto:</label>
+        <input placeholder="Ingresar Número de Contacto" type="text" id="numero_Contact" name="numero_Contact" ngModel required>
       </div>
     </div>
-    <div>
-      <button type="submit">Enviar</button>
-    </div>
-  </form>
-    <!-- Mensaje de confirmación o error -->
-  <div *ngIf="message" class="message">
-    {{ message }}
   </div>
-  <form class="form2">
-    <div *ngIf="results.length > 0" class="resultados">
+  <div>
+    <button type="submit">Enviar</button>
+  </div>
+</form>
+    <!-- Mensaje de confirmación o error -->
+<!-- Tabla para mostrar los resultados-->
+<div *ngIf="results.length > 0" class="form2" >
       <div *ngFor="let result of results">
-        <div *ngFor="let feature of result.resultado">
-          <h1>HOLA {{feature.Cant_Horas_Trabj}}</h1>
+        <div class="containerHorario">
+          <label>Número Horario :</label>
+          {{ result.id_Horario }}
+          <br/>
+          <label>Hora de Inicio: </label>
+          {{ result.hora_Inicio }}
+          <br/>
+          <label>Hora Final: </label>
+          {{ result.hora_Final }}
+          <br/>
+          <label>Cantidad de Horas Trabajadas: </label>
+          {{ result.canT_HORAS_TRABJ }}
         </div>
+        <br/>
       </div>
-    </div>
-    <div *ngIf="results.length === 0">
-      No hay datos disponibles.
-    </div>
-  </form>
+</div>
+<div *ngIf="results.length === 0">
+  No hay datos disponibles.
+</div>
 
+<!-- Mensaje de confirmación o error-->
+<div *ngIf="message" class="message">
+  {{ message }}
+</div>
 

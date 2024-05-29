@@ -1,25 +1,23 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-export interface Resultado {
-  resultado:ResultHorario[];
-  errorIndicator:number;
-  messageError:string;
-}
 
 export interface ResultHorario {
-    Id_Horario: number;
-    Hora_Inicio: string;
-    Hora_Final: string;
-    Cant_Horas_Trabj: string;
+    id_Horario: number;
+    hora_Inicio: string;
+    hora_Final: string;
+    canT_HORAS_TRABJ: string;
+    actividad: number;
   }
   // Define otras propiedades según sea necesario
 
+  export interface Resultado {
+    result: ResultHorario[];
+    errorIndicator: number;
+    messageError: string;
+  }
 
-export interface RequestTipoHorario {
-  Id_Horario: number;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +29,8 @@ export class GetTipoHorario {
 
   constructor(private http: HttpClient) { }
 
-  getResults(request: RequestTipoHorario): Observable<{ result: Resultado[] }> {
-    return this.http.post<{ result: Resultado[] }>(this.apiUrl, request);
+  getResults(): Observable<Resultado> {
+    return this.http.get<Resultado>(this.apiUrl);
   }
+
 }

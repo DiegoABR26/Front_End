@@ -5,9 +5,19 @@ body{
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
-
 }
+
+body::-webkit-scrollbar{
+  height: 7px;
+  width: 7px;
+  background:#e9e5fc ;
+}
+
+body::-webkit-scrollbar-thumb{
+  background:#989dec;
+  border-radius: 5px;
+}
+
 
 h1 {
   text-align: center;

@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface Trabajador {
-  nombre1: string;
-  apellido1: string;
-  sede1: number; // revisar el  tipo de dato de este
-  THorario: string; // revisar el dato de este
+export interface InsertTrabajador {
+  dni:string;
+  nombre: string;
+  sede: number; // revisar el  tipo de dato de este
+  tipo_Horario: number; // revisar el dato de este
+  tipo_Contrato: number;
+  fecha_Ingreso: string;
+  fecha_Cese: string;
   email: string;
-  numberContact: string;
+  numero_Contact: string;
 }
 
 @Injectable({
@@ -16,11 +19,11 @@ export interface Trabajador {
 })
 export class InsertTrabajadorService {
 
-  private apiUrl = 'https://localhost:5001/api/BusinessIntelligenceController/GetTipoHorarios';
+  private apiUrl = 'https://localhost:5001/api/BusinessIntelligenceController/InsertTrabajador';
 
   constructor(private http: HttpClient) { }
 
-  insertTrabajador(trabajador: Trabajador): Observable<any> {
+  insertTrabajador(trabajador: InsertTrabajador): Observable<any> {
     return this.http.post<any>(this.apiUrl, trabajador);
   }
 }

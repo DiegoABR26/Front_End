@@ -2,15 +2,102 @@
 <div class="boxReturn" (click)="navigate('')">
   <div class="overlay" style="padding-top: 3px;">Regresar</div>
 </div>
-<div *ngIf="results.length > 0">
-  <ul>
-    <li *ngFor="let result of results">
- <!--         {{ result.Id_Horario }} - {{ result.Hora_Inicio }} - {{result.Hora_Final}} - {{result.Cant_Horas_Trabj}}-->
-</li>
-  </ul>
-</div>
-<div *ngIf="results.length === 0">
-  No data available.
+<!-- src/app/paginated-table/paginated-table.component.html -->
+<div class="search-container">
+  <form (ngSubmit)="onSearch()">
+    <mat-form-field appearance="fill">
+      <mat-label>DNI</mat-label>
+      <input matInput [(ngModel)]="searchCriteria.dni" name="dni" type="text">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="searchCriteria.nombre" name="nombre">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de Horario</mat-label>
+      <input matInput [(ngModel)]="searchCriteria.tipo_Horario" name="tipo_Horario" type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de Contrato</mat-label>
+      <input matInput [(ngModel)]="searchCriteria.tipo_Contrato" name="tipo_Contrato" type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Sede</mat-label>
+      <input matInput [(ngModel)]="searchCriteria.sede" name="sede" type="number">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="buttonBuscar">Buscar</button>
+  </form>
 </div>
 
-<app-paginated-table></app-paginated-table>
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table-sticky">
+    <!-- Column Definitions -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef class="sticky"> Número </th>
+      <td mat-cell *matCellDef="let element" class="sticky"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dni">
+      <th mat-header-cell *matHeaderCellDef class="sticky"> Dni </th>
+      <td mat-cell *matCellDef="let element" class="sticky"> {{element.dni}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef class="nombre-column"> Nombre </th>
+      <td mat-cell *matCellDef="let element" class="nombre-column"> {{element.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="horario">
+      <th mat-header-cell *matHeaderCellDef class="horario-column"> Horario </th>
+      <td mat-cell *matCellDef="let element" class="horario-column"> {{element.horario}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipo_Contrato">
+      <th mat-header-cell *matHeaderCellDef class="tipo-contrato-column"> Tipo de Contrato </th>
+      <td mat-cell *matCellDef="let element" class="tipo-contrato-column"> {{element.tipo_Contrato}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha_Ingreso">
+      <th mat-header-cell *matHeaderCellDef class="fecha-ingreso-column"> Fecha de Ingreso </th>
+      <td mat-cell *matCellDef="let element" class="fecha-ingreso-column"> {{element.fecha_Ingreso}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actividad">
+      <th mat-header-cell *matHeaderCellDef class="actividad-column"> Actividad </th>
+      <td mat-cell *matCellDef="let element" class="actividad-column"> {{element.actividad}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha_Cese">
+      <th mat-header-cell *matHeaderCellDef class="fecha-cese-column"> Fecha de Cese </th>
+      <td mat-cell *matCellDef="let element" class="fecha-cese-column"> {{element.fecha_Cese}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre_Sede">
+      <th mat-header-cell *matHeaderCellDef class="nombre-sede-column"> Nombre de Sede </th>
+      <td mat-cell *matCellDef="let element" class="nombre-sede-column"> {{element.nombre_Sede}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef class="email-column"> Email </th>
+      <td mat-cell *matCellDef="let element" class="email-column"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numero_Contact">
+      <th mat-header-cell *matHeaderCellDef class="numero-contact-column"> Número de Contacto </th>
+      <td mat-cell *matCellDef="let element" class="numero-contact-column"> {{element.numero_Contact}} </td>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
