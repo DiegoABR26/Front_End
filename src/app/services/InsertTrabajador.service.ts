@@ -19,7 +19,7 @@ export interface InsertTrabajador {
 })
 export class InsertTrabajadorService {
 
-  private apiUrl = 'https://localhost:5001/api/BusinessIntelligenceController/InsertTrabajador';
+  private apiUrl = 'http://localhost:9095/api/BusinessIntelligenceController/InsertTrabajador';
 
   constructor(private http: HttpClient) { }
 

@@ -1,5 +1,4 @@
 /* src/app/app.component.css */
-
 .header {
   text-align: center;
   margin-bottom: 20px;
@@ -8,9 +7,14 @@
 
 .container {
   display: flex;
+  position: relative;
+  top: 30px;
+  left: 70px;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  width: 90vw;
+  height: 90vh;
 }
 
 .box {
@@ -21,17 +25,49 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  position: relative;
+  position: absolute;
   cursor: pointer;
-  border: 2px solid #5857b4;
+  border: 2px solid #45cb62;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+
+
+
+.registro{
+  top: 0;
+  left: 0;
+  width: 49%;
+  height: 48%;
+}
+
+.consulta{
+  bottom: 0;
+  left: 0;
+  width: 49%;
+  height: 50%;
+}
+
+.util{
+  bottom:0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+}
+
+.asistencia{
+  top:0;
+  right: 0;
+  width: 50%;
+  height: 48%;
+}
+
 .box:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 4;
 }
 
 .box:active {
@@ -56,5 +92,9 @@
 }
 
 #box3 {
+  background-image: url('./assets/asistencia.png');
+}
+
+#box4 {
   background-image: url('./assets/graficos.jpg');
 }

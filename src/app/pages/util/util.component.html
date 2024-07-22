@@ -1,0 +1,74 @@
+
+<div class="boxReturn" (click)="navigate('')">
+  <div class="overlay" style="padding-top: 3px;">Regresar</div>
+</div>
+<h1> REGISTRO DE CONSTANTES</h1>
+<div class="form1">
+  <form #sedeForm="ngForm" (ngSubmit)="onInsertSede(sedeForm)" id="sedeForm">
+    <div class="sede">
+      <div class="input-group">
+        <div class="input-item">
+          <label for="sede">SEDE: </label>
+          <input maxlength="8" placeholder="Ingresar nombre de sede" type="text" id="sede" name="sede" ngModel required>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button type="submit">Registrar</button>
+    </div>
+  </form>
+  <br>
+  <div>
+    <button (click)="onMostrarSede()">Mostrar Sedes</button>
+  </div>
+</div>
+<br>
+<div class="form2">
+  <form #montosPagosform="ngForm" (ngSubmit)="onInsertMontosPagos(montosPagosform)" id="montosPagosform">
+    <div class="sede">
+      <div class="input-group">
+        <div class="input-item">
+          <label for="pago_dia">PAGO POR DÍA: </label>
+          <input maxlength="8" placeholder="Ingresar monto de pago por día" type="number" id="pago_dia" name="pago_dia" ngModel required>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-item">
+          <label for="pago_hora">PAGO POR HORA: </label>
+          <input maxlength="8" placeholder="Ingresar monto de pago por hora" type="number" id="pago_hora" name="pago_hora" ngModel required>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-item">
+          <label for="pago_hora_nocturna">PAGO POR HORA NOCTURNA: </label>
+          <input maxlength="8" placeholder="Ingresar monto de pago por hora nocturna" type="number" id="pago_hora_nocturna" name="pago_hora_nocturna" ngModel required>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-item">
+          <label for="descuento_falta">DESCUENTO POR FALTA: </label>
+          <input maxlength="8" placeholder="Ingresar descuento por falta" type="number" id="descuento_falta" name="descuento_falta" ngModel required>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button type="submit">Registrar</button>
+    </div>
+  </form>
+</div>
+<div class="listSedes">
+  <div *ngFor="let sedes of results">
+    <label>Número de Sede: </label>
+    {{sedes.id}}
+    <br>
+    <label>Nombre de Sede: </label>
+    {{sedes.nombre_Sede}}
+  </div>
+  <div *ngIf="results.length === 0">
+    No hay datos disponibles.
+  </div>
+</div>
+
+<div class="ValoresPagos">
+
+</div>

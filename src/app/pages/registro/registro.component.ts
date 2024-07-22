@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { InsertTrabajadorService, InsertTrabajador } from "src/app/services/InsertTrabajador.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ListSedesService, Sedes } from "src/app/services/ListaSedes.service";
 
 @Component({
   selector: 'app-registro',
@@ -13,10 +14,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class RegistroComponent implements OnInit {
   message: string = '';
-
+  resultSedes:Sedes[] = [];
   results: ResultHorario[] = [];
 
-  constructor(private router: Router, private apiService: GetTipoHorario, private insertTrabajadorService: InsertTrabajadorService, private snackBar: MatSnackBar) {}
+  constructor(private router: Router,
+     private apiService: GetTipoHorario,
+      private insertTrabajadorService: InsertTrabajadorService,
+       private snackBar: MatSnackBar,
+      private ListSedes:ListSedesService) {}
 
   onInsertTrabajador(form: NgForm): void {
     console.log(form.value);
@@ -52,8 +57,6 @@ export class RegistroComponent implements OnInit {
           this.message = 'La inserción se realizó con éxito.';
           this.snackBar.open(this.message, 'Cerrar', { duration: 2000, horizontalPosition: 'right', verticalPosition: 'bottom' });
           form.resetForm();
-          console.log(form.value);
-          console.log(trabajador);
         },
         error => {
           this.message = 'Hubo un error en la inserción. Por favor, intente de nuevo.';
@@ -81,6 +84,13 @@ export class RegistroComponent implements OnInit {
     },
     error => {
       console.log('Error:', error);
+    });
+
+    this.ListSedes.ListSedes().subscribe(response => {
+      this.resultSedes = response.List;
+    },
+    error => {
+      console.log('Error',error);
     });
   }
 }

@@ -25,7 +25,7 @@ export interface ResultHorario {
 
 
 export class GetTipoHorario {
-  private apiUrl = 'https://localhost:5001/api/BusinessIntelligenceController/GetTipoHorarios';
+  private apiUrl = 'http://localhost:9095/api/BusinessIntelligenceController/GetTipoHorarios';
 
   constructor(private http: HttpClient) { }
 

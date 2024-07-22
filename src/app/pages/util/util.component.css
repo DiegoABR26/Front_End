@@ -1,7 +1,7 @@
 .form1 {
-  width: 50vw;
-  height: 70%;
-  left: 300px;
+  width: 30vw;
+  height: 25%;
+  left: 10px;
   padding-right: 100px;
   position: relative;
   background-color: #ffffff; /* Fondo del formulario en blanco */
@@ -20,21 +20,22 @@
   background:#989dec;
   border-radius: 5px;
 }
-/*
+
 .form2 {
-  width: 22%;
-  position: absolute;
-  max-height: 60%;
-  right: 20px;
-  background-color: rgb(200, 241, 255); /* Fondo del formulario en blanco
+  width: 30vw;
+  height: 49%;
+  left: 10px;
+  padding-right: 100px;
+  position: relative;
+  background-color: #ffffff; /* Fondo del formulario en blanco */
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: auto;
 }
 .form2::-webkit-scrollbar{
   width: 7px;
-  background:rgb(200, 241, 255) ;
+  background:#ffffff ;
 }
 
 .form2::-webkit-scrollbar-thumb{
@@ -42,14 +43,22 @@
   border-radius: 5px;
 }
 
-.containerHorario{
-  width:100%;
-  background-color: rgb(223, 247, 255);
+.listSedes{
+  width: 30vw;
+  height: 49%;
+  right: 10px;
+  top:20px;
+  padding-right: 100px;
+  position: absolute;
+  background-color: #ffffff; /* Fondo del formulario en blanco */
+  padding: 20px;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: auto;
 }
 
-*/
-.trabajador1 {
+
+.sede {
   display:inline-block; /* Mostrar los divs padre uno al lado del otro */
   /* vertical-align: top; /* Alinearlos verticalmente arriba */
 }

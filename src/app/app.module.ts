@@ -20,17 +20,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { InsertTrabajadorService } from './services/InsertTrabajador.service';
 import { GetTipoHorario } from './services/GetTipoHorario.service';
 import { ListTrabajadoresService } from './services/ListaTrabajadores.service';
+import { InsertSedesService } from './services/InsertSede.service';
+import { ListSedesService } from './services/ListaSedes.service';
+import { InsertMontosPagosService } from './services/InsertMontosPagos.services';
 
 //Components
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import {RegistroComponent} from './pages/registro/registro.component';
+import { UtilComponent } from './pages/util/util.component';
+import { AsistenciaComponent } from './pages/asistencia/asistencia.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ConsultaComponent,
-    RegistroComponent
+    RegistroComponent,
+    UtilComponent,
+    AsistenciaComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,7 @@ import {RegistroComponent} from './pages/registro/registro.component';
     MatInputModule,
     MatSnackBarModule
   ],
-  providers: [GetTipoHorario, InsertTrabajadorService,ListTrabajadoresService],
+  providers: [GetTipoHorario, InsertTrabajadorService,ListTrabajadoresService, InsertSedesService, ListSedesService, InsertMontosPagosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

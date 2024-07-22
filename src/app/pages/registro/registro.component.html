@@ -21,7 +21,11 @@
       </div>
       <div class="input-item">
         <label for="sede">Sede:</label>
-        <input placeholder="Ingresar Sede de Labores" type="number" id="sede" name="sede" ngModel required>
+        <select id="sede" name="sede" ngModel required>
+          <option *ngFor="let sede of resultSedes" [value]="sede.id">
+            {{sede.nombre_Sede}}
+          </option>
+        </select>
       </div>
       <div class="input-item">
         <label for="tHorario">Tipo de Horario:</label>
@@ -33,9 +37,10 @@
       </div>
       <div class="input-item">
         <label for="tContrato">Tipo de contrato:</label>
-        <select id="tContrato" name="tContrato" ngModel required>
-          <option *ngFor="let horario of results" [value]="horario.id_Horario">
-            {{horario.hora_Inicio}} - {{horario.hora_Final}}
+        <select  id="tContrato" name="tContrato" ngModel required >
+          <option>1
+          </option>
+          <option>2
           </option>
         </select>
       </div>
@@ -63,7 +68,7 @@
 </form>
     <!-- Mensaje de confirmación o error -->
 <!-- Tabla para mostrar los resultados-->
-<div *ngIf="results.length > 0" class="form2" >
+<!--<div *ngIf="results.length > 0" class="form2" >
       <div *ngFor="let result of results">
         <div class="containerHorario">
           <label>Número Horario :</label>
@@ -83,7 +88,7 @@
 </div>
 <div *ngIf="results.length === 0">
   No hay datos disponibles.
-</div>
+</div>-->
 
 <!-- Mensaje de confirmación o error-->
 <div *ngIf="message" class="message">

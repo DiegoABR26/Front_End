@@ -37,7 +37,7 @@ export interface Trabajador{
 })
 
 export class ListTrabajadoresService {
-  private apiUrl = 'https://localhost:5001/api/BusinessIntelligenceController/ListaTrabajadores';
+  private apiUrl = 'http://localhost:9095/api/BusinessIntelligenceController/ListaTrabajadores';
 
   constructor(private http:HttpClient ){ }
 
